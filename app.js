@@ -52,7 +52,12 @@ const processSearch = (dataLimit) => {
     const searchText = searchField.value;
     loadPhones(searchText, dataLimit);
 }
-
+// search with enter button
+document.getElementById('search-field').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        processSearch(10);
+    }
+});
 document.getElementById('btn-search').addEventListener('click', function(){
     processSearch(10);
 })
