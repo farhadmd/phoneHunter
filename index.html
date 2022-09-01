@@ -16,6 +16,7 @@
     </header>
     <main class="container">
         <section>
+            <!-- Search bar -->
             <div class="mb-3 w-50">
                 <input id="search-field" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search a Phone">
                 <div id="btn-search" class="btn btn-primary">Search</div>
@@ -24,7 +25,10 @@
         <section>
             <div id="phones-container" class="row row-cols-1 row-cols-md-3 g-4">
                 
-              </div>
+            </div>
+            <div id="no-phone" class="mt-5 d-none">
+                <h3 class="text-primary">No Phone found! Please search again</h3>
+            </div>
         </section>
     </main>
     <!-- Option 1: Bootstrap Bundle with Popper -->
