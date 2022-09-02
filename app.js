@@ -20,7 +20,7 @@ const displayPhones = (phones, dataLimit) => {
     
     // Display No phone
     const noPhone = document.getElementById('no-phone');
-    console.log('nophonefound');
+    // console.log('nophonefound');
     if (phones.length === 0) {
         noPhone.classList.remove('d-none');
     }
@@ -37,6 +37,9 @@ const displayPhones = (phones, dataLimit) => {
                 <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <button onclick="loadPhoneDetails('${phone.slug}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">
+                    Show Details
+                </button>
                 </div>
             </div>
         `;
@@ -74,4 +77,24 @@ const toggleSpinner = isLoading => {
 document.getElementById('btn-show-all').addEventListener('click', function(){
     processSearch();
 })
-// loadPhones();
+// Show detils btn function
+const loadPhoneDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displyPhoneDetails(data.data);
+}
+const displyPhoneDetails = phone => {
+    console.log(phone);
+    const modalTitle = document.getElementById('phoneDetailModalLabel');
+    modalTitle.innerText = phone.name;
+    const phoneDetails = document.getElementById('phonDetails');
+    phoneDetails.innerHTML = `
+     <p>Brand Name: ${phone.brand ? phone.brand : 'No Brand Name'}</p>
+     <p>ChipSet: ${phone.mainFeatures ? phone.mainFeatures.chipSet : 'No Chipset Details'}</p>
+     <p>DisplaySize: ${phone.mainFeatures ? phone.mainFeatures.displaySize : "No Display Details"}</p>
+     <p>Storage: ${phone.mainFeatures ? phone.mainFeatures.storage : "No Storage Details"}</p>
+     <p>Release Date: ${phone.releaseDate ? phone.releaseDate : 'No Release Date Deatils'}</p>
+    `
+}
+// loadPhones('apple');

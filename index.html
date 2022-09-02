@@ -18,7 +18,7 @@
         <section>
             <!-- Search bar -->
             <div class="mb-3 w-50">
-                <input id="search-field" type="email" class="form-control my-3" id="exampleFormControlInput1" placeholder="Search a Phone">
+                <input id="search-field" type="email" class="form-control my-3" id="phoneDetailFormControlInput1" placeholder="Search a Phone">
                 <div id="btn-search" class="btn btn-primary">Search</div>
             </div>
         </section>
@@ -40,6 +40,28 @@
                   <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
+        </section>
+        <!-- Modal Contents -->
+        <section>
+                <!-- Modal -->
+                <div class="modal fade" id="phoneDetailModal" tabindex="-1" aria-labelledby="phoneDetailModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="phoneDetailModalLabel">
+                            
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="phonDetails" class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
         </section>
     </main>
     <!-- Option 1: Bootstrap Bundle with Popper -->
